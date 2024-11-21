@@ -28,7 +28,7 @@ if __name__ == "__main__":
     node = Node(5)
     node.left = Node(4)
     node.right = Node(7)
-    print(Solution().validate_bst(node))
+    assert Solution().validate_bst(node)
 
     #   5
     #  / \
@@ -39,4 +39,4 @@ if __name__ == "__main__":
     node.left = Node(4)
     node.right = Node(7)
     node.right.left = Node(2)
-    print(Solution().validate_bst(node))
+    assert not Solution().validate_bst(node)
