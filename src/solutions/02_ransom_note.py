@@ -14,7 +14,6 @@ class Solution:
         return True
 
 
-if __name__ == "main":
-    assert Solution().canSpell(["a", "b", "c", "d", "e", "f"], "bed")
-
-    assert not Solution().canSpell(["a", "b", "c", "d", "e", "f"], "cat")
+if __name__ == "__main__":
+    assert Solution().can_spell(["a", "b", "c", "d", "e", "f"], "bed")
+    assert not Solution().can_spell(["a", "b", "c", "d", "e", "f"], "cat")
