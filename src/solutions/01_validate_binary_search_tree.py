@@ -1,15 +1,20 @@
+from __future__ import annotations
+
+
 class Node:
-    def __init__(self, value, left=None, right=None):
+    def __init__(self, value: int, left: Node | None = None, right: Node | None = None):
         self.value = value
         self.left = left
         self.right = right
 
 
 class Solution:
-    def validate_bst(self, root):
+    def validate_bst(self, root: Node | None) -> bool:
         return self._validate_bst(root, float("-inf"), float("inf"))
 
-    def _validate_bst(self, root, min_value, max_value):
+    def _validate_bst(
+        self, root: Node | None, min_value: float, max_value: float
+    ) -> bool:
         if root is None:
             return True
 
