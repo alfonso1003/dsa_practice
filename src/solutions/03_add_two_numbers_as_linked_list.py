@@ -1,26 +1,31 @@
-class Node:
-    def __init__(self, val):
-        self.value = val
-        self.next = None
+from __future__ import annotations
 
-    def __eq__(self, other):
+
+class Node:
+    def __init__(self, val: int, next_node: Node | None = None):
+        self.value = val
+        self.next = next_node
+
+    def __eq__(self, other: Node) -> bool:
         if not isinstance(other, Node):
             return False
         return self.value == other.value and self.next == other.next
 
 
 class Solution:
-    def __init__(self, method="iterative"):
+    def __init__(self, method: str = "iterative"):
         if method not in {"iterative", "recursive"}:
             raise ValueError("Invalid method. Choose 'iterative' or 'recursive'.")
         self.method = method
 
-    def add_two_nodes(self, n1, n2):
+    def add_two_nodes(self, n1: Node | None, n2: Node | None) -> Node | None:
         if self.method == "recursive":
             return self._add_two_nodes_recursive(n1, n2, 0)
-        return self._add_two_nodes_iterative(n1, n2, 0)
+        return self._add_two_nodes_iterative(n1, n2)
 
-    def _add_two_nodes_recursive(self, n1, n2, carry):
+    def _add_two_nodes_recursive(
+        self, n1: Node | None, n2: Node | None, carry: int
+    ) -> Node | None:
         if not n1 and not n2 and carry == 0:
             return None
 
@@ -36,10 +41,10 @@ class Solution:
 
         return result
 
-    def _add_two_nodes_iterative(self, n1, n2, carry):
+    def _add_two_nodes_iterative(self, n1: Node | None, n2: Node | None) -> Node | None:
         carry = 0
-        head = None
-        tail = None
+        head: Node | None = None
+        tail: Node | None = None
 
         while n1 or n2 or carry:
             val1 = n1.value if n1 else 0
